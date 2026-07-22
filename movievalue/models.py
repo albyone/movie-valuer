@@ -10,7 +10,7 @@ class Movie:
     barcode: str
     format: str
 
-    estimated_value: str = ""
+    estimated_value: float
     confidence: str = ""
     source: str = ""
     notes: str = ""
