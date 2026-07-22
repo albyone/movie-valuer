@@ -6,6 +6,7 @@ from pathlib import Path
 from colorama import Fore, Style, init
 from tqdm import tqdm
 
+from movievalue.models import Movie
 from movievalue.csv_io import MovieCSV
 from movievalue.logger import logger
 
@@ -55,7 +56,11 @@ def main():
         total=len(df),
         desc="Valuing"):
 
-        valuation = service.value_movie(row)
+        movie = Movie.from_series(row)
+
+        print(f"Looking up: {movie.title}")
+        
+        valuation = service.value_movie(movie)
 
         df.at[index, "Estimated Value (AUD)"] = valuation.value
         df.at[index, "Confidence"] = valuation.confidence
