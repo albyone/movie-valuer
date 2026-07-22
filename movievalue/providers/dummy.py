@@ -2,11 +2,12 @@ import random
 
 from movievalue.providers.base import Provider
 from movievalue.value import MovieValue
+from movievalue.models import Movie
 
 
 class DummyProvider(Provider):
 
-    def lookup(self, movie):
+    def lookup(self, movie: Movie):
 
         return MovieValue(
             value=round(random.uniform(2, 20), 2),
