@@ -1,3 +1,5 @@
+from movievalue.service import MovieValueService
+
 from argparse import ArgumentParser
 from pathlib import Path
 
@@ -43,13 +45,22 @@ def main():
     print(f"Loaded {len(df)} movies")
 
     df = csv.add_output_columns(df)
+    service = MovieValueService()
 
     #
     # Fake processing for now
     #
-    for _ in tqdm(df.index, desc="Preparing"):
+    for index, row in tqdm(
+        df.iterrows(),
+        total=len(df),
+        desc="Valuing"):
 
-        pass
+        valuation = service.value_movie(row)
+
+        df.at[index, "Estimated Value (AUD)"] = valuation.value
+        df.at[index, "Confidence"] = valuation.confidence
+        df.at[index, "Source"] = valuation.source
+        df.at[index, "Notes"] = valuation.notes
 
     output = (
         Path("output")

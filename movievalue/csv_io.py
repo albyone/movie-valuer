@@ -36,9 +36,10 @@ class MovieCSV:
 
     def add_output_columns(self, df):
 
-        for col in OUTPUT_COLUMNS:
-            if col not in df.columns:
-                df[col] = ""
+        for column, dtype in OUTPUT_COLUMNS.items():
+
+            if column not in df.columns:
+                df[column] = pd.Series(dtype=dtype)
 
         return df
 
