@@ -58,14 +58,11 @@ def main():
 
         movie = Movie.from_series(row)
 
-        print(f"Looking up: {movie.title}")
-        
+        logger.info("Looking up: %s", movie.title)
+
         valuation = service.value_movie(movie)
 
-        df.at[index, "Estimated Value (AUD)"] = valuation.value
-        df.at[index, "Confidence"] = valuation.confidence
-        df.at[index, "Source"] = valuation.source
-        df.at[index, "Notes"] = valuation.notes
+        csv.update_valuation(df, index, valuation)
 
     output = (
         Path("output")

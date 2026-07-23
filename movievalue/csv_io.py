@@ -52,3 +52,10 @@ class MovieCSV:
         df.to_csv(output, index=False)
 
         return output
+    
+    def update_valuation(self, df, index, valuation):
+
+        df.at[index, "Estimated Value (AUD)"] = valuation.value
+        df.at[index, "Confidence"] = valuation.confidence
+        df.at[index, "Source"] = valuation.source
+        df.at[index, "Notes"] = valuation.notes

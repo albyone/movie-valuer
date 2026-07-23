@@ -10,7 +10,7 @@ class DummyProvider(Provider):
     def lookup(self, movie: Movie):
 
         return MovieValue(
-            value=round(random.uniform(2, 20), 2),
+            value=float(len(movie.title)),
             confidence="Dummy",
             source="Dummy Provider",
             notes="Testing only",
