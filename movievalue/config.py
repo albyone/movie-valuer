@@ -12,7 +12,8 @@ CACHE_DIR = ROOT_DIR / "cache"
 LOG_DIR = ROOT_DIR / "logs"
 
 OMDB_API_KEY = os.getenv("OMDB_API_KEY")
-EBAY_APP_ID = os.getenv("EBAY_APP_ID")
+EBAY_CLIENT_ID = os.getenv("EBAY_CLIENT_ID")
+EBAY_CLIENT_SECRET = os.getenv("EBAY_CLIENT_SECRET")
 
 OUTPUT_COLUMNS = {
     "Estimated Value (AUD)": "float",
