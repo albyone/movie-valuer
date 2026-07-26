@@ -4,6 +4,13 @@ from movievalue.clients.ebay import EbayClient
 
 client = EbayClient()
 
-token = client.access_token
+prices = client.search("9321337082288")
 
-pprint(token)
+#print(prices)
+
+for item in prices:
+    print(item["title"])
+    print(item["condition"])
+    print(item["price"])
+    print(item["shipping_cost"])
+    print()

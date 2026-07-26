@@ -35,3 +35,12 @@ class Movie:
             notes=str(row["Notes"]),
             last_checked=row["Last Checked"],
         )
+
+@dataclass(slots=True)
+class EbayListing:
+    title: str
+    price: float
+    shipping: float
+    currency: str
+    condition: str
+    location: str

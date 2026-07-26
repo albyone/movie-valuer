@@ -32,6 +32,8 @@ class MovieCSV:
         if missing:
             raise ValueError(f"Missing columns: {missing}")
 
+        df = self.add_output_columns(df)
+
         return df
 
     def add_output_columns(self, df):

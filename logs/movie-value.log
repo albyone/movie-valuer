@@ -974,3 +974,15 @@
 2026-07-23 13:31:51,290 INFO Looking up: Inspector George Gently Series 4
 2026-07-23 13:31:51,291 INFO Looking up: Inspector George Gently Series 5
 2026-07-23 13:31:51,299 INFO Saved output/DadsMovieCollection_valued.csv
+2026-07-24 13:19:16,615 INFO Loading CSV data/DadsMovieCollection.csv
+2026-07-24 13:19:16,684 INFO Looking up: 2 Guns
+2026-07-24 13:25:20,851 INFO Loading CSV data/DadsMovieCollection.csv
+2026-07-24 13:25:20,888 INFO Looking up: 2 Guns
+2026-07-24 13:27:46,288 INFO Loading CSV data/DadsMovieCollection.csv
+2026-07-24 13:27:46,311 INFO Looking up: 2 Guns
+2026-07-24 13:27:46,312 INFO Looking up: 3 Films By Louis Malle-Murmur of the Heart;Lacombe,Lucien;Au revoir les Infants
+2026-07-24 13:27:46,319 INFO Saved output/DadsMovieCollection_valued.csv
+2026-07-24 13:43:12,811 INFO Loading CSV data/DadsMovieCollection.csv
+2026-07-24 13:43:12,854 INFO Saved output/DadsMovieCollection_valued.csv
+2026-07-24 13:43:19,048 INFO Loading CSV data/DadsMovieCollection.csv
+2026-07-24 13:43:19,081 INFO Saved output/DadsMovieCollection_valued.csv

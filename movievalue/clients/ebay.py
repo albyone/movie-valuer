@@ -5,6 +5,20 @@ from movievalue.config import (
     EBAY_CLIENT_SECRET,
 )
 
+ALLOWED_CONDITIONS = {
+    "BRAND NEW",
+    "LIKE NEW",
+    "VERY GOOD",
+}
+
+EXCLUDED_TITLE_TEXT = {
+    "SLIPCOVER",
+    "CASE ONLY",
+    "NO DISC",
+    "EMPTY CASE",
+    "DIGITAL CODE",
+    "ARTWORK ONLY",
+}
 
 class EbayClient:
 
@@ -32,6 +46,7 @@ class EbayClient:
 
         return response.json()
 
+
     @property
     def access_token(self):
 
@@ -40,3 +55,50 @@ class EbayClient:
             self._access_token = token["access_token"]
 
         return self._access_token
+
+    def search(self, query: str, limit: int = 10):
+
+        response = requests.get(
+            "https://api.ebay.com/buy/browse/v1/item_summary/search",
+            headers={
+                "Authorization": f"Bearer {self.access_token}",
+                "X-EBAY-C-MARKETPLACE-ID": "EBAY_AU",
+            },
+            params={
+                "q": query,
+                "limit": limit,
+            },
+            timeout=30,
+        )
+
+        response.raise_for_status()
+
+        data = response.json()
+
+        accepted = []
+
+        for item in data.get("itemSummaries", []):
+
+            condition = item.get("condition").upper()
+
+            if condition not in ALLOWED_CONDITIONS:
+                continue
+
+            title = item["title"].upper()
+
+            if any(text in title for text in EXCLUDED_TITLE_TEXT):
+                continue
+
+            accepted.append(
+                {
+                    "title": item["title"],
+                    "condition": item["condition"],
+                    "price": float(item["price"]["value"]),
+                    "shippingOptions": float(item[item]["shippingCost"]["value"])
+                }
+            )
+
+            if len(accepted) == 5:
+                break
+
+        return accepted
