@@ -89,12 +89,18 @@ class EbayClient:
             if any(text in title for text in EXCLUDED_TITLE_TEXT):
                 continue
 
+            shipping_cost = None
+            shipping_options = item.get("shippingOptions", [])
+            if shipping_options:
+                first_option = shipping_options[0]
+                shipping_cost = float(first_option.get("shippingCost", {}).get("value", 0))
+
             accepted.append(
                 {
                     "title": item["title"],
                     "condition": item["condition"],
                     "price": float(item["price"]["value"]),
-                    "shippingOptions": float(item[item]["shippingCost"]["value"])
+                    "shipping": shipping_cost
                 }
             )
 

@@ -10,6 +10,7 @@ class Movie:
     director: str
     barcode: str
     format: str
+    condition: str
 
     estimated_value: float
     confidence: str = ""
@@ -29,6 +30,7 @@ class Movie:
             director=str(row["Director"]).strip(),
             barcode=barcode,
             format=str(row["Format"]).strip(),
+            condition=str(row["Condition"]).strip(),
             estimated_value=row["Estimated Value (AUD)"],
             confidence=row["Confidence"],
             source=row["Source"],
@@ -39,8 +41,6 @@ class Movie:
 @dataclass(slots=True)
 class EbayListing:
     title: str
+    condition: str
     price: float
     shipping: float
-    currency: str
-    condition: str
-    location: str

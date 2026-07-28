@@ -25,6 +25,7 @@ class MovieCSV:
             "Director",
             "Barcode",
             "Format",
+            "Condition",
         ]
 
         missing = [c for c in required if c not in df.columns]

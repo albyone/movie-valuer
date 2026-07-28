@@ -1,5 +1,3 @@
-import random
-
 from movievalue.providers.base import Provider
 from movievalue.value import MovieValue
 from movievalue.models import Movie
