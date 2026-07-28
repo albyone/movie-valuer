@@ -44,7 +44,8 @@ class MovieValueService:
             listing["price"] + (listing["shipping"] or 0)
             for listing in listings
         ]
-        
+
+
         value = round(mean(prices), 2)
 
         return MovieValue(

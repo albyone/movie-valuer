@@ -1005,3 +1005,44 @@
 2026-07-28 17:40:38,757 INFO Looking up: 100 Years of powered flight
 2026-07-28 17:40:39,845 INFO Looking up: 12 Monkeys
 2026-07-28 17:40:40,497 INFO Saved output/DadsMovieCollection_valued.csv
+2026-07-28 21:22:59,766 INFO Loading CSV data/DadsMovieCollection.csv --limit=5
+2026-07-28 21:24:48,119 INFO Loading CSV data/DadsMovieCollection.csv
+2026-07-28 21:24:48,191 INFO Looking up: 13
+2026-07-28 21:29:15,262 INFO Loading CSV data/DadsMovieCollection.csv
+2026-07-28 21:29:15,300 INFO Looking up: 13
+2026-07-28 21:30:13,097 INFO Loading CSV data/DadsMovieCollection.csv
+2026-07-28 21:30:13,129 INFO Looking up: 13
+2026-07-28 21:30:15,849 INFO Looking up: 36
+2026-07-28 21:30:16,507 INFO Looking up: 2046
+2026-07-28 21:30:17,394 INFO Looking up: 100 Years of powered flight
+2026-07-28 21:30:18,036 INFO Looking up: 12 Monkeys
+2026-07-28 21:30:18,662 INFO Saved output/DadsMovieCollection_valued.csv
+2026-07-28 21:31:10,438 INFO Loading CSV data/DadsMovieCollection.csv
+2026-07-28 21:31:10,483 INFO Looking up: 13
+2026-07-28 22:01:53,270 INFO Loading CSV data/DadsMovieCollection.csv
+2026-07-28 22:05:27,582 INFO Loading CSV data/DadsMovieCollection.csv
+2026-07-28 22:05:27,603 INFO Looking up: 13
+2026-07-28 22:06:23,889 INFO Loading CSV data/DadsMovieCollection.csv
+2026-07-28 22:06:23,911 INFO Looking up: 13
+2026-07-28 22:06:53,368 INFO Loading CSV data/DadsMovieCollection.csv
+2026-07-28 22:06:53,390 INFO Looking up: 13
+2026-07-28 22:06:56,069 INFO Looking up: 36
+2026-07-28 22:06:56,596 INFO Looking up: 2046
+2026-07-28 22:06:57,403 INFO Looking up: 100 Years of powered flight
+2026-07-28 22:06:58,053 INFO Looking up: 12 Monkeys
+2026-07-28 22:06:58,742 INFO Saved output/DadsMovieCollection_valued.csv
+2026-07-28 22:16:33,399 INFO Loading CSV data/DadsMovieCollection.csv
+2026-07-28 22:16:33,439 INFO Looking up: 13
+2026-07-28 22:21:34,712 INFO Loading CSV data/DadsMovieCollection.csv
+2026-07-28 22:25:24,007 INFO Looking up: 13
+2026-07-28 22:29:30,027 INFO Loading CSV data/DadsMovieCollection.csv
+2026-07-28 22:30:48,888 INFO Looking up: 13
+2026-07-28 22:34:59,848 INFO Loading CSV data/DadsMovieCollection.csv
+2026-07-28 22:35:02,883 INFO Looking up: 13
+2026-07-28 22:37:59,636 INFO Loading CSV data/DadsMovieCollection.csv
+2026-07-28 22:38:05,404 INFO Looking up: 13
+2026-07-28 22:38:37,611 INFO Looking up: 36
+2026-07-28 22:40:28,612 INFO Looking up: 2046
+2026-07-28 22:40:54,211 INFO Looking up: 100 Years of powered flight
+2026-07-28 22:41:06,095 INFO Looking up: 12 Monkeys
+2026-07-28 22:41:57,637 INFO Saved output/DadsMovieCollection_valued.csv

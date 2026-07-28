@@ -12,5 +12,6 @@ for item in prices:
     print(item["title"])
     print(item["condition"])
     print(item["price"])
+    print(item["country"])
     print(item["shipping"])
     print()
