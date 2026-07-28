@@ -4,7 +4,7 @@ from movievalue.clients.ebay import EbayClient
 
 client = EbayClient()
 
-prices = client.search("9321337082288")
+prices = client.search("5023965362322")
 
 #print(prices)
 

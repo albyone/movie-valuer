@@ -79,7 +79,7 @@ class EbayClient:
 
         for item in data.get("itemSummaries", []):
 
-            condition = item.get("condition").upper()
+            condition = item.get("condition", "").upper()
 
             if condition not in ALLOWED_CONDITIONS:
                 continue
