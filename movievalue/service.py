@@ -45,7 +45,6 @@ class MovieValueService:
             for listing in listings
         ]
 
-
         value = round(mean(prices), 2)
 
         return MovieValue(

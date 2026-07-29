@@ -22,7 +22,8 @@ class Movie:
     def from_series(cls, row: pd.Series):
         barcode = ""
         if pd.notna(row["Barcode"]):
-            barcode = str(row["Barcode"]).replace(".0", "")
+            barcode = str(int(row["Barcode"]))
+#            barcode = str(row["Barcode"]).replace(".0", "")
         return cls(
             title=str(row["Title"]).strip(),
             running_time=str(row["Running Time"]).strip(),
