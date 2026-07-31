@@ -5,6 +5,7 @@ from movievalue.value import MovieValue
 from statistics import mean
 
 UNOPENED_CONDITION = "Unopened"
+OPENED_CONDITION = "nan"
 
 class MovieValueService:
 
@@ -13,6 +14,8 @@ class MovieValueService:
 #        self.provider = OMDbProvider()
 
     def value(self, movie):
+
+        notes = ""
 
         if movie.barcode:
             listings = self.provider.search(movie.barcode)
@@ -29,8 +32,20 @@ class MovieValueService:
 
             if brand_new:
                 listings = brand_new
-            else:
                 notes = "No Brand New listings found. Estimated using used listings."
+
+        if movie.condition != UNOPENED_CONDITION:
+
+            not_brand_new = [
+                listing
+                for listing in listings
+                    if listing["condition"] != "BRAND NEW"
+            ]
+
+            if not_brand_new:
+                listings = not_brand_new
+                notes = "Brand New listings removed. Estimated using used listings."
+
 
         if not listings:
             return MovieValue(
@@ -47,9 +62,14 @@ class MovieValueService:
 
         value = round(mean(prices), 2)
 
+        if notes:
+            notes += f" ({len(prices)} listing)" if len(prices) == 1 else f" ({len(prices)} listings)"
+        else:
+            notes = f"{len(prices)} listing" if len(prices) == 1 else f"{len(prices)} listings"
+
         return MovieValue(
             value=value,
             confidence="High" if len(prices) >= 5 else "Medium" if len(prices) >= 3 else "Low",
             source="eBay",
-            notes=f"{len(prices)} listings",
+            notes=notes,
         )

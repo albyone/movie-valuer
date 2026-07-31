@@ -20,6 +20,11 @@ EXCLUDED_TITLE_TEXT = {
     "ARTWORK ONLY",
 }
 
+ALLOWED_CATEGORY_IDS = {
+    "617",      # DVDs & Blu-ray Discs
+    "11232",    # Movies & TV
+}
+
 class EbayClient:
 
     TOKEN_URL = "https://api.ebay.com/identity/v1/oauth2/token"
@@ -95,10 +100,20 @@ class EbayClient:
                 first_option = shipping_options[0]
                 shipping_cost = float(first_option.get("shippingCost", {}).get("value", 0))
 
+            categories = item.get("categories", [])
+
+            category_ids = {
+                category["categoryId"]
+                for category in categories
+            }
+
+            if not category_ids.intersection(ALLOWED_CATEGORY_IDS):
+                continue
+
             accepted.append(
                 {
                     "title": item["title"],
-                    "condition": item["condition"],
+                    "condition": condition,
                     "price": float(item["price"]["value"]),
                     "shipping": shipping_cost
                 }
