@@ -10,7 +10,8 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args": ["data/DadsMovieCollection.csv"]
+            "args": ["data/DadsMovieCollection.csv", "--limit=5"],
+            "envFile": "${workspaceFolder}/movievalue/.env"
         }
     ]
 }

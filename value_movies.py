@@ -24,6 +24,13 @@ def parse_args():
         help="Input CSV file",
     )
 
+    parser.add_argument(
+        "--limit",
+        type=int,
+        default=None,
+        help="Only process the first N movies",
+    )
+
     return parser.parse_args()
 
 
@@ -45,27 +52,30 @@ def main():
 
     print(f"Loaded {len(df)} movies")
 
-    df = csv.add_output_columns(df)
     service = MovieValueService()
 
     #
     # Fake processing for now
     #
-    for index, row in tqdm(
+    if args.limit:
+        df = df.head(args.limit)
+
+    progress = tqdm(
         df.iterrows(),
         total=len(df),
-        desc="Valuing"):
+        desc="Valuing",
+    )
 
+    for index, row in progress:
         movie = Movie.from_series(row)
 
-        print(f"Looking up: {movie.title}")
-        
-        valuation = service.value_movie(movie)
+        progress.set_postfix_str(movie.title)
 
-        df.at[index, "Estimated Value (AUD)"] = valuation.value
-        df.at[index, "Confidence"] = valuation.confidence
-        df.at[index, "Source"] = valuation.source
-        df.at[index, "Notes"] = valuation.notes
+        logger.info("Looking up: %s", movie.title)
+
+        valuation = service.value(movie)
+
+        csv.update_valuation(df, index, valuation)
 
     output = (
         Path("output")
